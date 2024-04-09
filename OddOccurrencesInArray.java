@@ -33,25 +33,28 @@ all but one of the values in A occur an even number of times.
 
 class Solution { 
     public int solution(int[] A) { 
-        // Implement your solution here 
         int lenA = A.length; 
-      
+
+        // Do the easy checks
         if (lenA == 0) { 
             return 0; 
         } 
-
         if (lenA == 1) { 
             return A[0]; 
         } 
-         
+
+        // Sort the array so that each paired number will be consecutive
         Arrays.parallelSort(A); 
 
+        // Check each pair, ie if A[0] == A[1], then A[2] == A[3]
+        // Return the element that isn't paired
         for (int i = 0; i < lenA-2; i+=2) { 
             if (A[i] != A[i+1]) { 
                 return A[i]; 
             } 
         } 
 
+        // We get here because the last element is the unpaired one
         return A[lenA-1]; 
     } 
 } 
