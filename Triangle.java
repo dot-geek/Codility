@@ -1,7 +1,5 @@
 /** 
 
-SCORED 93% 
-
 An array A consisting of N integers is given. A triplet (P, Q, R) is triangular if 0 ≤ P < Q < R < N and: 
 
 A[P] + A[Q] > A[R], 
@@ -37,6 +35,13 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [0..100,000]; 
 
 each element of array A is an integer within the range [−2,147,483,648..2,147,483,647]. 
+
+SCORED 93% 
+Time complexity: O(N*log(N))
+
+extreme_arith_overflow1
+overflow test, 3 MAXINTs ✘WRONG ANSWER
+got 0 expected 1
 
 */
 
