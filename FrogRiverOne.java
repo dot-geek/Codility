@@ -46,20 +46,28 @@ each element of array A is an integer within the range [1..X].
 
 class Solution { 
     public int solution(int X, int[] A) { 
-        // Implement your solution here 
         int lenA = A.length; 
         int steps = X; 
 
+        // Do the easy check first
+        // There are more steps need to jump than
+        // number in the array so the frog never gets
+        // to the other side
         if (X > lenA) { 
-            // never gets there 
             return -1; 
         } 
 
+        // Create an array of tickboxes
+        // tickbox[1] = true means step 1 (ie A[K] = 1) has a leaf to jump onto
         boolean[] tickbox = new boolean[X+1]; 
 
-        for (int i = 0; i < lenA; i++) { 
-            if (A[i] <= X) { // Skip any that is more than X 
+        // Loop through the whole array, stop when we tick all our steps
+        // That would be the earliest time the frog crosses the river
+        for (int i = 0; i < lenA; i++) {             
+            if (A[i] <= X) { 
+                // We skipped any that is more than X                 
                 if (!tickbox[A[i]]) { 
+                    // If we haven't tick this step, we do it now
                     tickbox[A[i]] = true; 
                     steps--; 
                     if (steps == 0) { 
@@ -69,6 +77,8 @@ class Solution {
             }             
         } 
 
+        // We have looped through all the elements in the array and still
+        // have not crossed the river, return -1
         if (steps > 0) { 
             return -1; 
         }
