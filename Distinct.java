@@ -18,23 +18,21 @@ N is an integer within the range [0..100,000];
 each element of array A is an integer within the range [−1,000,000..1,000,000]. 
 */
  
-
 public int solution(int[] A) { 
-    // Implement your solution here 
     int lenA = A.length; 
 
+    // Do the easy checks first
     if (lenA == 0) { 
         return 0;             
     } 
-
     if (lenA == 1) { 
         return 1; 
     } 
 
+    // Sort the array so that we get groups of distinct numbers
+    // Then we just need to count the groups in a loop
     int count = 1; 
-
     Arrays.parallelSort(A); 
-
     for (int i = 1; i < lenA; i++) { 
         if (A[i-1] != A[i]) { 
             count++; 
