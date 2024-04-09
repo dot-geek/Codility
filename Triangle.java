@@ -45,18 +45,24 @@ class Solution {
 
         int lenA = A.length; 
 
+        // No point continuing if array is less than 3
         if (lenA < 3) { 
             return 0; 
         } 
 
+        // Sort the array. The idea is that the conditions will more likely
+        // be met if the numbers are close together
         Arrays.parallelSort(A); 
 
+        // Loop through the array and calculate every 3 elements according to the 
+        // conditions
         for (int i = 0; i < lenA-2; i++) { 
             int p = A[i]; 
             int q = A[i+1]; 
             int r = A[i+2]; 
 
-            if (p > 0 && q > 0 && r > 0) { 
+            // p can be zero, q > p, r > q, so they can't be zero
+            if (p >= 0 && q > 0 && r > 0) { 
                 if (p+q > r && q+r > p && r+p > q) { 
                     return 1; 
                 }  
