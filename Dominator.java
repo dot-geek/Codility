@@ -37,16 +37,24 @@ class Solution {
             return -1; 
         } 
 
+        // Cloning array A because we want to retain the index to
+        // look up to return later on
         int[] B = A.clone(); 
 
+        // Sort the array to get groups
         Arrays.parallelSort(B); 
 
+        // The idea is that the dominant number will be in the middle of the
+        // array because it is occurs more than half of the elements
         int middleIndex = lenA/2; 
         int domCandidate = B[middleIndex]; 
         int indexToReturn = -1; 
         int domCandidateIndex = -1; 
 
         int count = 0; 
+        // Loop through array A to find the number of dominant elements
+        // Add to count when we find one
+        // The index we are returning is the last dominant element we find in the array
         for (int i = 0; i < lenA; i++) { 
             if (A[i] == domCandidate) { 
                 count++; 
@@ -54,6 +62,9 @@ class Solution {
             } 
         } 
 
+        // Checking that count is more than half of the elements,
+        // as if it is not, we return -1 because there is no dominator
+        // If it is more than half, we return the index of the dominant element
         if (count > middleIndex) { 
             indexToReturn = domCandidateIndex; 
         } 
