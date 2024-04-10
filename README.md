@@ -3,7 +3,7 @@ Example solutions for Codility lesson tasks and challenges
 www.codility.com
 
 
-Lessons:
+## Lessons:
 
 Lesson 2 Arrays - CyclicRotation, OddOccurrencesInArray
 
@@ -21,7 +21,7 @@ Lesson 10 Prime and composite numbers - CountFactors
 
 
 
-Execises:
+## Execises:
 
 Exercise 1 2015 Contest - LongestPassword
 
